@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { BodyFormPage } from "../body-form/body-form"
 /**
  * Generated class for the IdentificationPage page.
  *
@@ -15,6 +15,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class IdentificationPage {
 
+  idNumber: string;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -22,4 +24,7 @@ export class IdentificationPage {
     console.log('ionViewDidLoad IdentificationPage');
   }
 
+  createRecord(event) {
+    this.navCtrl.push(BodyFormPage, {'idNumber': this.idNumber})
+  }
 }
