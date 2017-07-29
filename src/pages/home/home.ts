@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { IdentificationPage } from "../identification/identification"
 
 @Component({
   selector: 'page-home',
@@ -11,4 +12,8 @@ export class HomePage {
 
   }
 
+  newRecord(event)
+  {
+    this.navCtrl.push(IdentificationPage);
+  }
 }

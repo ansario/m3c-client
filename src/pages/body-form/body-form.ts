@@ -19,7 +19,7 @@ export class BodyFormPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad BodyFormPage');
+    console.log(this.navParams.get('idNumber'));
   }
 
 }
