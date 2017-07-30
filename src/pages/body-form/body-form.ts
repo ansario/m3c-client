@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { Validators, FormBuilder, FormGroup} from "@angular/forms"
 /**
  * Generated class for the BodyFormPage page.
  *
@@ -15,7 +15,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class BodyFormPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  private bodyForm: FormGroup;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
+    this.bodyForm = this.formBuilder.group({
+      title: ['', Validators.required],
+      description: ['']
+    });
   }
 
   ionViewDidLoad() {
