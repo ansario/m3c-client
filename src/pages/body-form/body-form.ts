@@ -20,12 +20,47 @@ export class BodyFormPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
     this.bodyForm = this.formBuilder.group({
       title: ['', Validators.required],
-      description: ['']
+      status: [''],
+      longitude: [''],
+      latitude:  [''],
+      description: this.formBuilder.group( {
+        bodyCondition: [''],
+        generalCondition: [''],
+        apparentSex: [''],
+        ageGroup: [''],
+        height: [''],
+        weight: [''],
+        eyeColor: [''],
+        headHairColor: [''],
+        headHairLength: [''],
+        facialHair: [''],
+        race: ['']
+      }),
+      associatedEvidence: this.formBuilder.group( {
+        clothing: [''],
+        footWear: [''],
+        eyeWear: [''],
+        personalItems: [''],
+        identityDocuments:  ['']
+      }),
+      pictures: this.formBuilder.group({
+        fullLength: [''],
+        upperHalf:  [''],
+        lowerHalf: [''],
+        frontViewOfHead:  [''],
+        elevatedView: [''],
+        uniqueFeatures:  [''],
+        personalEffects:  ['']
+      })
     });
   }
 
   ionViewDidLoad() {
     console.log(this.navParams.get('idNumber'));
+  }
+
+  submitForm(value){
+    console.log(value);
   }
 
 }
