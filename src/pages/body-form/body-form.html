@@ -170,31 +170,59 @@
       <ion-item-divider color="light">Photographs</ion-item-divider>
       <ion-item>
         <ion-label>Full Length</ion-label>
-        <ion-input type="text" formControlName="fullLength"></ion-input>
+        <ion-thumbnail item-end *ngIf="bodyForm.controls.pictures.controls.fullLength.value !== ''">
+          <img [src]="bodyForm.controls.pictures.controls.fullLength.value">
+        </ion-thumbnail>
+        <button ion-button item-end (click)="takePicture('fullLength')">Take Picture</button>
+        <ion-input hidden type="text" formControlName="fullLength"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Upper Half</ion-label>
-        <ion-input type="text" formControlName="upperHalf"></ion-input>
+        <ion-thumbnail item-end *ngIf="bodyForm.controls.pictures.controls.upperHalf.value !== ''">
+          <img [src]="bodyForm.controls.pictures.controls.upperHalf.value">
+        </ion-thumbnail>
+        <button ion-button item-end (click)="takePicture('upperHalf')">Take Picture</button>
+        <ion-input hidden type="text" formControlName="upperHalf"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Lower Half</ion-label>
-        <ion-input type="text" formControlName="lowerHalf"></ion-input>
+        <ion-thumbnail item-end *ngIf="bodyForm.controls.pictures.controls.lowerHalf.value !== ''">
+          <img [src]="bodyForm.controls.pictures.controls.lowerHalf.value">
+        </ion-thumbnail>
+        <button ion-button item-end (click)="takePicture('lowerHalf')">Take Picture</button>
+        <ion-input hidden type="text" formControlName="lowerHalf"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Front View of Head</ion-label>
-        <ion-input type="text" formControlName="frontViewOfHead"></ion-input>
+        <ion-thumbnail item-end *ngIf="bodyForm.controls.pictures.controls.frontViewOfHead.value !== ''">
+          <img [src]="bodyForm.controls.pictures.controls.frontViewOfHead.value">
+        </ion-thumbnail>
+        <button ion-button item-end (click)="takePicture('frontViewOfHead')">Take Picture</button>
+        <ion-input hidden type="text" formControlName="frontViewOfHead"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Elevated View</ion-label>
-        <ion-input type="text" formControlName="elevatedView"></ion-input>
+        <ion-thumbnail item-end *ngIf="bodyForm.controls.pictures.controls.elevatedView.value !== ''">
+          <img [src]="bodyForm.controls.pictures.controls.elevatedView.value">
+        </ion-thumbnail>
+        <button ion-button item-end (click)="takePicture('elevatedView')">Take Picture</button>
+        <ion-input hidden type="text" formControlName="elevatedView"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Unique Features</ion-label>
-        <ion-input type="text" formControlName="uniqueFeatures"></ion-input>
+        <ion-thumbnail item-end *ngIf="bodyForm.controls.pictures.controls.uniqueFeatures.value !== ''">
+          <img [src]="bodyForm.controls.pictures.controls.uniqueFeatures.value">
+        </ion-thumbnail>
+        <button ion-button item-end (click)="takePicture('uniqueFeatures')">Take Picture</button>
+        <ion-input hidden type="text" formControlName="uniqueFeatures"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Personal Effects</ion-label>
-        <ion-input type="text" formControlName="personalEffects"></ion-input>
+        <ion-thumbnail item-end *ngIf="bodyForm.controls.pictures.controls.personalEffects.value !== ''">
+          <img [src]="bodyForm.controls.pictures.controls.personalEffects.value">
+        </ion-thumbnail>
+        <button ion-button item-end (click)="takePicture('personalEffects')">Take Picture</button>
+        <ion-input hidden type="text" formControlName="personalEffects"></ion-input>
       </ion-item>
     </ion-item-group>
     <button ion-button type="submit" [disabled]="!bodyForm.valid">Submit</button>

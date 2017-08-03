@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Validators, FormBuilder, FormGroup} from "@angular/forms"
+import { Validators, FormBuilder, FormGroup} from "@angular/forms";
+
+import { Camera, CameraOptions } from "@ionic-native/camera";
 /**
  * Generated class for the BodyFormPage page.
  *
@@ -16,8 +18,14 @@ import { Validators, FormBuilder, FormGroup} from "@angular/forms"
 export class BodyFormPage {
 
   private bodyForm: FormGroup;
+  private options: CameraOptions = {
+    quality:  100,
+    destinationType:  this.camera.DestinationType.DATA_URL,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE
+  };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, private camera: Camera) {
     this.bodyForm = this.formBuilder.group({
       title: ['', Validators.required],
       status: [''],
@@ -57,6 +65,22 @@ export class BodyFormPage {
 
   ionViewDidLoad() {
     console.log(this.navParams.get('idNumber'));
+  }
+
+  takePicture(controlName: string)
+  {
+    let updateJson = {};
+    updateJson[controlName] = "http://lorempixel.com/200/200/";
+    this.bodyForm.patchValue({['pictures'] : updateJson});
+    // this.camera.getPicture(this.options).then((imageData) => {
+    //   // imageData is either a base64 encoded string or a file URI
+    //   // If it's base64:
+    //   let base64Image = 'data:image/jpeg;base64,' + imageData;
+    //   console.log(base64Image);
+    // }, (err) => {
+    //   // Handle error
+    //   console.log(err);
+    // });
   }
 
   submitForm(value){
