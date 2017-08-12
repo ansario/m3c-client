@@ -14,5 +14,218 @@
 
 
 <ion-content padding>
-
+  <form [formGroup]="bodyForm" (ngSubmit)="submitForm(bodyForm.value)">
+    <button type="button" (click)="prefill()" ion-button>Prefill</button>
+    <ion-item-group>
+      <ion-item-divider color="light">Identity/Status/Location</ion-item-divider>
+      <ion-item>
+        <ion-label>Possible Identity</ion-label>
+        <ion-input type="text" formControlName="title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Status</ion-label>
+        <ion-select formControlName="status">
+          <ion-option value="field">Field</ion-option>
+          <ion-option value="transit">Transit</ion-option>
+          <ion-option value="storage">Storage</ion-option>
+          <ion-option value="internment">Internment</ion-option>
+          <ion-option value="released">Released</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Longitude</ion-label>
+        <ion-input type="text" formControlName="longitude"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Latitude</ion-label>
+        <ion-input type="text" formControlName="latitude"></ion-input>
+      </ion-item>
+    </ion-item-group>
+    <ion-item-group formGroupName="description">
+      <ion-item-divider color="light">Description</ion-item-divider>
+      <ion-item>
+        <ion-label>Body Condition</ion-label>
+        <ion-select formControlName="bodyCondition">
+          <ion-option value="completeBody">Complete Body</ion-option>
+          <ion-option value="incompleteBody">Incomplete Body</ion-option>
+          <ion-option value="bodyPart">Body Part</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>General Condition</ion-label>
+        <ion-select formControlName="generalCondition">
+          <ion-option value="wellPreserved">Well Preserved</ion-option>
+          <ion-option value="decomposed">Decomposed</ion-option>
+          <ion-option value="partionallySkeletonized">Partionally Skeletonized</ion-option>
+          <ion-option value="skeletonized">Skeletonized</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Apparent Sex</ion-label>
+        <ion-select formControlName="apparentSex">
+          <ion-option value="male">Male</ion-option>
+          <ion-option value="female">Female</ion-option>
+          <ion-option value="probablyMale">Probably Male</ion-option>
+          <ion-option value="probablyFemale">Probably Female</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Age Group</ion-label>
+        <ion-select formControlName="ageGroup">
+          <ion-option value="infant">Infant</ion-option>
+          <ion-option value="child">Child</ion-option>
+          <ion-option value="adolescent">Adolescent</ion-option>
+          <ion-option value="adult">Adult</ion-option>
+          <ion-option value="elderly">Elderly</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Height</ion-label>
+        <ion-input type="text" formControlName="height"></ion-input>
+        <ion-select formControlName="height">
+          <ion-option value="short">Short</ion-option>
+          <ion-option value="average">Average</ion-option>
+          <ion-option value="tall">Tall</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Weight</ion-label>
+        <ion-select formControlName="weight">
+          <ion-option value="slim">Slim</ion-option>
+          <ion-option value="average">Average</ion-option>
+          <ion-option value="fat">Fat</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Eye Color</ion-label>
+        <ion-select formControlName="eyeColor">
+          <ion-option value="brown">Brown</ion-option>
+          <ion-option value="blue">Blue</ion-option>
+          <ion-option value="green">Green</ion-option>
+          <ion-option value="gray">Gray</ion-option>
+          <ion-option value="black">Black</ion-option>
+          <ion-option value="hazel">Hazel</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Head Hair Color</ion-label>
+        <ion-select formControlName="headHairColor">
+          <ion-option value="blonde">Blonde</ion-option>
+          <ion-option value="brown">Brown</ion-option>
+          <ion-option value="black">Black</ion-option>
+          <ion-option value="red">Red</ion-option>
+          <ion-option value="gray">Gray</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Head Hair Length</ion-label>
+        <ion-select formControlName="headHairLength">
+          <ion-option value="short">Short</ion-option>
+          <ion-option value="midLength">Mid-length</ion-option>
+          <ion-option value="long">Long</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Facial Hair</ion-label>
+        <ion-select formControlName="facialHair">
+          <ion-option value="none">None</ion-option>
+          <ion-option value="beardAndMustache">Beard and Mustache</ion-option>
+          <ion-option value="beard">Beard</ion-option>
+          <ion-option value="mustache">Mustache</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Race</ion-label>
+        <ion-select formControlName="race">
+          <ion-option value="white">White</ion-option>
+          <ion-option value="black">Black</ion-option>
+          <ion-option value="asianOrPacificIslander">Asian/Pacific Islander</ion-option>
+          <ion-option value="other">Other</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-item-group>
+    <ion-item-group formGroupName="associatedEvidence">
+      <ion-item-divider color="light">Associated Evidence</ion-item-divider>
+      <ion-item>
+        <ion-label>Clothing</ion-label>
+        <ion-input type="text" formControlName="clothing"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Footwear</ion-label>
+        <ion-input type="text" formControlName="footWear"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Eyewear</ion-label>
+        <ion-input type="text" formControlName="eyeWear"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Personal Items</ion-label>
+        <ion-input type="text" formControlName="personalItems"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Identity Documents</ion-label>
+        <ion-input type="text" formControlName="identityDocuments"></ion-input>
+      </ion-item>
+    </ion-item-group>
+    <ion-item-group formGroupName="pictures">
+      <ion-item-divider color="light">Photographs</ion-item-divider>
+      <ion-item>
+        <ion-label>Full Length</ion-label>
+        <ion-thumbnail item-end *ngIf="bodyForm.controls.pictures.controls.fullLength.value !== ''">
+          <img [src]="bodyForm.controls.pictures.controls.fullLength.value">
+        </ion-thumbnail>
+        <button type="button" ion-button item-end (click)="takePicture('fullLength')">Take Picture</button>
+        <ion-input hidden type="text" formControlName="fullLength"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Upper Half</ion-label>
+        <ion-thumbnail item-end *ngIf="bodyForm.controls.pictures.controls.upperHalf.value !== ''">
+          <img [src]="bodyForm.controls.pictures.controls.upperHalf.value">
+        </ion-thumbnail>
+        <button type="button" ion-button item-end (click)="takePicture('upperHalf')">Take Picture</button>
+        <ion-input hidden type="text" formControlName="upperHalf"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Lower Half</ion-label>
+        <ion-thumbnail item-end *ngIf="bodyForm.controls.pictures.controls.lowerHalf.value !== ''">
+          <img [src]="bodyForm.controls.pictures.controls.lowerHalf.value">
+        </ion-thumbnail>
+        <button type="button" ion-button item-end (click)="takePicture('lowerHalf')">Take Picture</button>
+        <ion-input hidden type="text" formControlName="lowerHalf"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Front View of Head</ion-label>
+        <ion-thumbnail item-end *ngIf="bodyForm.controls.pictures.controls.frontViewOfHead.value !== ''">
+          <img [src]="bodyForm.controls.pictures.controls.frontViewOfHead.value">
+        </ion-thumbnail>
+        <button type="button" ion-button item-end (click)="takePicture('frontViewOfHead')">Take Picture</button>
+        <ion-input hidden type="text" formControlName="frontViewOfHead"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Elevated View</ion-label>
+        <ion-thumbnail item-end *ngIf="bodyForm.controls.pictures.controls.elevatedView.value !== ''">
+          <img [src]="bodyForm.controls.pictures.controls.elevatedView.value">
+        </ion-thumbnail>
+        <button type="button" ion-button item-end (click)="takePicture('elevatedView')">Take Picture</button>
+        <ion-input hidden type="text" formControlName="elevatedView"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Unique Features</ion-label>
+        <ion-thumbnail item-end *ngIf="bodyForm.controls.pictures.controls.uniqueFeatures.value !== ''">
+          <img [src]="bodyForm.controls.pictures.controls.uniqueFeatures.value">
+        </ion-thumbnail>
+        <button type="button" ion-button item-end (click)="takePicture('uniqueFeatures')">Take Picture</button>
+        <ion-input hidden type="text" formControlName="uniqueFeatures"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Personal Effects</ion-label>
+        <ion-thumbnail item-end *ngIf="bodyForm.controls.pictures.controls.personalEffects.value !== ''">
+          <img [src]="bodyForm.controls.pictures.controls.personalEffects.value">
+        </ion-thumbnail>
+        <button type="button" ion-button item-end (click)="takePicture('personalEffects')">Take Picture</button>
+        <ion-input hidden type="text" formControlName="personalEffects"></ion-input>
+      </ion-item>
+    </ion-item-group>
+    <button ion-button type="submit" [disabled]="!bodyForm.valid">Submit</button>
+  </form>
 </ion-content>
