@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { IdentificationPage } from "../identification/identification"
+import {BarcodeScanner} from "@ionic-native/barcode-scanner"
 
 @Component({
   selector: 'page-home',
@@ -8,8 +9,19 @@ import { IdentificationPage } from "../identification/identification"
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  private idNumber;
 
+  constructor(public navCtrl: NavController, private barcodeScanner: BarcodeScanner) {
+
+  }
+
+  scanCode()
+  {
+    this.barcodeScanner.scan().then((barcodeData) => {
+      this.idNumber = barcodeData;
+    }, (err) => {
+      // An error occurred
+    });
   }
 
   newRecord(event)

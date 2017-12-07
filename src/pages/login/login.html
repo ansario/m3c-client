@@ -1,0 +1,40 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-content class="login-content" padding>
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <ion-col text-center>
+      <img src="https://openclipart.org/download/233813/Red-Cross-First-Aid-Icon.svg" height="200" width="200"/>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+  <div class="login-box">
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+
+            <ion-item>
+              <ion-input type="text" placeholder="Username" name="username" [(ngModel)]="loginCredentials.username" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="loginCredentials.password" required></ion-input>
+            </ion-item>
+
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="signup-col" text-center>
+          <button ion-button class="submit-btn" full type="submit" (click)="login()">Login</button>
+          <p>Unauthorized use is prohibited. Accounts are managed by the Central Command Center. See the field leader for account help.</p>
+        </ion-col>
+      </ion-row>
+  </div>
+</ion-content>
